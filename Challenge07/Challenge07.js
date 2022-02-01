@@ -95,9 +95,27 @@ const objLat = (obj) => {
 // ------------------------
 const cvFormatter = (arr) => {
     
-    // write your code here
-};
+    let newArr = []
+    let newCV = []
 
+    for(let i = 0 ; i<arr.length;i++){
+        if(arr[i].yearsOfExperience >1){
+        let name;
+        if(arr[i].lastName == null){
+            name = arr[i].firstName
+        }else{
+            name = arr[i].firstName +" "+ arr[i].lastName
+        }
+        newArr[i]= {
+            fullName : name,
+            tech : arr[i].tech
+        }
+        newCV.push(newArr[i])
+        }
+    }
+
+    return newCV
+}
 // 3) ---------------------
 //
 //  Rekey wants to get statistic about the applicants
@@ -120,6 +138,36 @@ const cvFormatter = (arr) => {
 // ------------------------
 const applicationsStatics = (arr) => {
     // write your code here
+    let python_DevsN = 0
+    let javaScript_DevsN = 0
+    let dotNet_DevsN= 0
+    let java_DevsN= 0
+    let totalApplicants= 0
+    let rejectedApplicantsN= 0
+
+    for(let i = 0 ; i<arr.length;i++){
+        if((arr[i].firstName == null || arr[i].lastName == null)||arr[i].yearsOfExperience<1){
+            rejectedApplicantsN += 1
+        }
+        if(arr[i].tech =="Python"){
+            python_DevsN +=1
+        }else if(arr[i].tech =="JS"){
+            javaScript_DevsN +=1
+        }else if(arr[i].tech ==".Net"){
+            dotNet_DevsN +=1
+        }else if(arr[i].tech =="Java"){
+            java_DevsN +=1
+        }
+        }
+        let result = {
+            python_Devs: python_DevsN,
+            javaScript_Devs: javaScript_DevsN,
+            dotNet_Devs: dotNet_DevsN,
+            java_Devs: java_DevsN,
+            totalApplicants: arr.length,
+            rejectedApplicants: rejectedApplicantsN,
+        }
+    return result
 };
 
 // 4) ---------------------
@@ -245,6 +293,31 @@ let data = {
 
 const classesAvg = (data) => {
     // write your code here
+
+
+    let classScore = data.grades
+
+    for(let i = 0;i<classScore.length;i++){
+        let classNum = classScore[i].classes
+
+        for(let j = 0;j<classNum.length;j++){
+            let scores = classNum[j].classScores
+            let ResSum = 0
+            for(let k = 0 ;k<scores.length;k++){
+                ResSum = ResSum + scores[k]
+
+                if(k==scores.length-1){
+                    let ResAvg =0
+                    ResAvg+= Math.floor(ResSum/scores.length)
+                    classNum[j].avg = ResAvg
+                    console.log(ResAvg,ResSum)
+                }
+            }
+        }
+
+
+    }
+    return data
 };
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
