@@ -27,8 +27,13 @@
 // -------------------------------------------------------------------------------------------------------
 
 const customerAndAge = (obj) => {
+  let newArr = []
   // write your code here
-};
+  for(const property in obj ){
+      newArr.push(`Customer Name :${property} , Age :${obj[property]}`)
+  }
+  return newArr
+}
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 02
@@ -54,7 +59,13 @@ const customerAndAge = (obj) => {
 // -------------------------------------------------------------------------------------------------------
 
 const getEntries = (obj) => {
-  // write your code here
+  function getRecipeKey(obj){
+     let newArr = []
+     for(const property in obj){
+     newArr.push(`${property}: ${obj[property]}`)}
+     return newArr
+ }
+ return  getRecipeKey(obj)
 };
 
 // -------------------------------------------------------------------------------------------------------
@@ -95,11 +106,17 @@ const courses = [
 const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
-  // write your code here
+
+    for (const element of arr) {
+      coursesName.push(element.course)
+        for (const prop of element.Students){
+            studentsName.push(prop)
+        }
+
+      }
 
   return { coursesName, studentsName };
 };
-
 //  ------------------------------------------------------------------------------------------------------
 // Challenge 04
 
@@ -119,9 +136,51 @@ const getInfo = (arr) => {
 //  ------------------------------------------------------------------------------------------------------
 
 const getStudents = (arr) => {
-  // write your code here
+  let Array = [];
+  const courses = [
+      {
+          course: 'Python',
+          Instructor: 'Delaney',
+          Students: ['Barney', 'Kalé', 'Alisha'],
+          GroupName: 'Whats-Up',
+      },
+      {
+          course: 'JavaScript',
+          Instructor: 'Van',
+          Students: ['Alphonso', 'Daley', 'Dax', 'Karter', 'Jorja'],
+          GroupName: 'Nerd-ware',
+      },
+      {
+        course: 'Java',
+        Instructor: 'David',
+        Students: ['Lincoln', 'Ruth', 'Briana', 'Suzy', 'Greta'],
+        GroupName: 'Stars',
+      },
 
+      {
+        course: 'DotNet',
+        Instructor: 'Keanna',
+        Students: ['Oli', 'Gisselle', 'Pru'],
+        GroupName: 'Lol',
+      },
+  ];
+  // write your code here
+  for(const element of courses){
+      // console.log(element)
+      for(const Studant of element.Students){
+          // console.log(Studant)
+          for(const student of arr){
+              // console.log(student)
+              if(student==Studant){
+                  let Object = {'Student':Studant,'course':element.course}
+                  Array.push(Object)
+              }
+          }
+      }
+  }
+  return Array   
 };
+
 
 module.exports = {
   customerAndAge,
