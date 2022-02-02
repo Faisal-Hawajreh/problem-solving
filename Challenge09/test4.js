@@ -1,11 +1,4 @@
-'use strict';
-
-// Important Note:
-// Kindly use forEach loop instead of for in all of your solutions
-
-// Resource:
-// forEach: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
-
+'use strict'
 // 1) ---------------------
 // 
 //  using the (arrInc) function; increase the provided array values by 10
@@ -24,16 +17,10 @@ const arrInc = (arr) => {
     // write your code here
     return result;
 }
+console.log(arrInc([20, 54, 89, 41]))
 
 
-// 2) ---------------------
-// 
-//  using the (roundDecimals) function; given an array of decimals round every value to the closest value
-//  
-//  EX:
 //  [5.4, 5.5 ,6.7, 6.8] ==> [5, 6, 7, 7]
-// 
-// ------------------------
 const roundDecimals = (arr) => {
     // write your code here
     let result = [];
@@ -43,6 +30,7 @@ const roundDecimals = (arr) => {
     });
     return result
 }
+console.log(roundDecimals([5.4, 5.5 ,6.7, 6.8]))
 
 // 3) ---------------------
 // 
@@ -50,32 +38,32 @@ const roundDecimals = (arr) => {
 //  and 50$ for those who worked less, given their data increase their salary and return the data back again 
 //  
 //  EX:
-// let data = [
-//     {
-//         name: "Robert",
-//         section: "Transport",
-//         workHours: 8,
-//         salary: "3000$"
-//     },
-//     {
-//         name: "Richard",
-//         section: "HR",
-//         workHours: 6,
-//         salary: "4000$"
-//     },
-//     {
-//         name: "Christopher",
-//         section: "Production",
-//         workHours: 10,
-//         salary: "4500$"
-//     },
-//     {
-//         name: "Andrew",
-//         section: "HouseKeeping",
-//         workHours: 9,
-//         salary: "3200$"
-//     }
-// ]
+let data = [
+    {
+        name: "Robert",
+        section: "Transport",
+        workHours: 8,
+        salary: "3000$"
+    },
+    {
+        name: "Richard",
+        section: "HR",
+        workHours: 6,
+        salary: "4000$"
+    },
+    {
+        name: "Christopher",
+        section: "Production",
+        workHours: 10,
+        salary: "4500$"
+    },
+    {
+        name: "Andrew",
+        section: "HouseKeeping",
+        workHours: 9,
+        salary: "3200$"
+    }
+]
 // 
 //  ==>
 //
@@ -108,6 +96,19 @@ const roundDecimals = (arr) => {
 //
 
 // ------------------------
+const data2 = [{
+    name: "Jack",
+    section: "Coding",
+    workHours: 6,
+    salary: "9000$"
+},
+{
+    name: "Andrew",
+    section: "Marketing",
+    workHours: 9,
+    salary: "5000$"
+}
+];
 const employeesBonus = (arr) => {
     // write your code here
     arr.forEach((element)=>{
@@ -122,7 +123,7 @@ const employeesBonus = (arr) => {
     });
     return arr
 }
-
+console.log(employeesBonus(data2))
 // 4) ---------------------
 // 
 // Harry wants to buy a new mouse and keyboard for his new setup
@@ -131,9 +132,9 @@ const employeesBonus = (arr) => {
 // 
 // EX:
 //
-// budget = 200$
-// mouseArray = [35, 15, 75, 180, 150, 50]
-// keyBoardArray = [5, 150, 35, 120, 75, 50, 100]
+let budget = 200
+let mouseArray = [35, 15, 75, 180, 150, 50]
+let keyBoardArray = [5, 150, 35, 120, 75, 50, 100]
 // 
 // ==> 200
 // ------------------------
@@ -155,5 +156,4 @@ const mostExpensive = (budget, mouseArray, keyBoardArray) => {
     console.log(mostExpensive)
     return Math.max.apply(null,mostExpensive)
 }
-
-module.exports = { arrInc, roundDecimals, employeesBonus, mostExpensive };
+console.log(mostExpensive(150, [35, 15, 75], [5, 150, 100]))
